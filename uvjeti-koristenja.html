@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uvjeti korištenja | Sušić Design</title>
+    <meta name="description" content="Uvjeti korištenja web stranice Sušić Design.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --burgundy: #800020;
+            --cream: #F5F1E8;
+            --charcoal: #2C3E50;
+            --sage: #8A9A5B;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #ffffff 50%, var(--cream) 100%);
+            color: var(--charcoal);
+            line-height: 1.75;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .topbar-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--charcoal);
+        }
+
+        .brand-badge {
+            width: 46px;
+            height: 46px;
+            border-radius: 999px;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .brand-text h1 {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            line-height: 1.1;
+        }
+
+        .brand-text p {
+            margin: 2px 0 0 0;
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 600;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: white;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .back-link:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .page-wrap {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 48px 20px 64px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .hero h2 {
+            margin: 0 0 12px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 52px);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            margin: 0 auto;
+            max-width: 700px;
+            color: var(--gray);
+            font-size: 17px;
+        }
+
+        .document-card {
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        .document-header {
+            padding: 28px 32px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.10) 0%, rgba(255,255,255,1) 100%);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .document-header .label {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            margin-bottom: 10px;
+        }
+
+        .document-header h3 {
+            margin: 0 0 8px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            line-height: 1.2;
+        }
+
+        .document-header p {
+            margin: 0;
+            color: var(--gray);
+        }
+
+        .document-content {
+            padding: 34px 32px 40px;
+        }
+
+        .document-content h4 {
+            margin: 34px 0 14px;
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            line-height: 1.25;
+            color: var(--charcoal);
+        }
+
+        .document-content p {
+            margin: 0 0 18px;
+            font-size: 16px;
+            color: #334155;
+        }
+
+        .document-content ul {
+            margin: 0 0 18px 22px;
+            padding: 0;
+        }
+
+        .document-content li {
+            margin-bottom: 10px;
+        }
+
+        .info-box {
+            background: rgba(245, 241, 232, 0.7);
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 18px;
+            padding: 20px 22px;
+            margin: 20px 0 28px;
+        }
+
+        .seller-box {
+            background: #fcfcfc;
+            border: 1px solid var(--light-gray);
+            border-radius: 18px;
+            padding: 18px 20px;
+            margin: 18px 0 26px;
+        }
+
+        .seller-box p {
+            margin: 0 0 8px 0;
+        }
+
+        .seller-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .separator {
+            height: 1px;
+            background: var(--light-gray);
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--gray);
+            font-size: 14px;
+            margin-top: 28px;
+        }
+
+        .footer a {
+            color: var(--charcoal);
+        }
+
+        @media (max-width: 768px) {
+            .topbar-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .back-link {
+                width: 100%;
+                text-align: center;
+            }
+
+            .page-wrap {
+                padding-top: 28px;
+            }
+
+            .document-header,
+            .document-content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .document-header h3 {
+                font-size: 28px;
+            }
+
+            .document-content h4 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="brand">
+                <div class="brand-badge">SD</div>
+                <div class="brand-text">
+                    <h1>Sušić Design</h1>
+                    <p>Premium ručno izrađeni pokloni</p>
+                </div>
+            </a>
+
+            <a href="index.html" class="back-link">← Povratak na početnu</a>
+        </div>
+    </header>
+
+    <main class="page-wrap">
+        <section class="hero">
+            <h2>Uvjeti korištenja</h2>
+            <p>
+                U nastavku su navedeni uvjeti korištenja web stranice i opći uvjeti web trgovine za Sušić Design / Obrt Itea.
+            </p>
+        </section>
+
+        <section class="document-card">
+            <div class="document-header">
+                <span class="label">Pravni dokument</span>
+                <h3>Uvjeti korištenja i odredbe</h3>
+                <p>
+                    Korištenjem web stranice <strong>www.susic-dizajn.com</strong> prihvaćate niže navedene uvjete.
+                </p>
+            </div>
+
+            <div class="document-content">
+                <p>
+                    Ovdje navedeni uvjeti korištenja pisanih materijala, popisa proizvoda i usluga te ostalih materijala s Internet stranica Obrta Itea (u daljnjem tekstu Obrt Itea) pravila su kojih su se dužni pridržavati svi korisnici materijala. Stoga Vas molimo da se upoznate s njima kako bismo izbjegli eventualne nesporazume i posljedice u svezi istih.
+                </p>
+
+                <div class="info-box">
+                    <p>
+                        Svako korištenje <strong>www.susic-dizajn.com</strong> podložno je niže navedenim uvjetima.
+                    </p>
+                </div>
+
+                <ul>
+                    <li>Svi sadržaji objavljeni na <strong>www.susic-dizajn.com</strong> vlasništvo su Obrta Itea i smiju se koristiti samo u privatne i nekomercijalne svrhe te se ne smiju kopirati, reproducirati ili na bilo koji način distribuirati bez pismenog pristanka Obrta Itea.</li>
+                    <li>Obrt Itea će nastojati održavati <strong>www.susic-dizajn.com</strong> stranice potpuno funkcionalnima te se truditi da sve objavljene informacije budu točne i potpune, ali nije odgovoran za povremeno nefunkcioniranje stranica, eventualnu netočnost informacija, kao niti za bilo kakvu štetu nastalu korištenjem netočnih ili nepotpunih informacija ili nemogućnošću pristupa istima.</li>
+                    <li>Stranicama <strong>www.susic-dizajn.com</strong> pristupa se putem Interneta. Internet je internacionalna računalna mreža koju Obrt Itea direktno ne kontrolira već je na nju samo vezan te zbog toga ne može garantirati dostupnost servisa i informacija koje direktno ne kontrolira.</li>
+                    <li>Obrt Itea zadržava pravo promjene bilo kojih sadržaja objavljenih na <strong>www.susic-dizajn.com</strong> u bilo koje vrijeme i bez prethodne najave.</li>
+                </ul>
+
+                <p>Navedeni uvjeti odnose se na nekoliko segmenata.</p>
+
+                <h4>Sigurnost podataka</h4>
+                <p>
+                    Radi sigurnosti podataka na ovoj adresi, te kako bismo osigurali da ova usluga bude pristupačna svim korisnicima, ovaj računalni sustav koristi softver programe koji prate posjete na mrežu te prepoznaju neovlaštene pokušaje otuđivanja ili izmjene podataka kao i one koji bi mogli prouzročiti štetu na neki drugi način.
+                </p>
+                <p>
+                    Neovlašteni pokušaji otuđivanja ili izmjene podataka na ovoj lokaciji strogo su zabranjeni.
+                </p>
+
+                <h4>Tajnost podataka</h4>
+                <p>
+                    Naglašavamo da prilikom posjete ovim stranicama i slanja e-mailova sa naših stranica, Vaši osobni podaci ostaju tajni, osim ukoliko ih ne želite dobrovoljno otkriti.
+                </p>
+                <p>
+                    Obvezujemo se da, osim u svrhu zakonske istrage, nećemo drugim stranama dati podatke koje smo primili.
+                </p>
+                <p>
+                    Nadalje, u skladu s uredbom o zaštiti osobnih podataka (EU 2016/679 – GDPR), sve informacije koje primimo od korisnika preko web stranice koristit će se isključivo u skladu s navedenom uredbom. Prihvaćanjem Uvjeta korištenja ujedno potvrđujete da ste upoznati s uredbom te pravima i obvezama koji iz iste proizlaze.
+                </p>
+
+                <h4>Autorska prava</h4>
+                <p>
+                    Cjelokupan sadržaj ovih web stranica zaštićen je autorskim pravom koje pripada Obrtu Itea, ili je ustupljeno Obrtu Itea, a u vlasništvu je trećih osoba.
+                </p>
+                <p>
+                    Obrt Itea također posjeduje autorsko pravo uređivanja, izbora i usklađivanja sadržaja ove lokacije. Nadalje, ova lokacija sadrži zaštitne znakove, imena pojedinaca i drugo slično intelektualno vlasništvo u posjedu Obrta Itea ili u vlasništvu trećih osoba, a Obrt Itea je nositelj licence.
+                </p>
+                <p>
+                    Ne smijete smatrati da je bilo koji sadržaj na ovoj lokaciji za upotrebu bez ograničenja. Može se zatražiti dozvola za umnožavanje.
+                </p>
+                <p>
+                    Svaka povreda istih prava, zlonamjerna ili slučajna, predstavlja ozbiljno kršenje uvjeta korištenja materijala s naših web stranica, te će Obrt Itea materijalno i krivično goniti takvog počinitelja.
+                </p>
+
+                <h4>Jamstva i uskraćivanje prava</h4>
+                <p>
+                    Materijal na ovoj web lokaciji je na raspolaganju bez jamstava bilo koje vrste, bilo izričitih ili impliciranih.
+                </p>
+                <p>
+                    Svaki korisnik izričito prihvaća korištenje ove web lokacije na svoju vlastitu odgovornost. Obrt Itea ne jamči da će ova web lokacija uvijek biti dostupna i raspoloživa te da neće sadržavati greške ili viruse, ili da će na njoj objavljeni podaci biti točni i pouzdani.
+                </p>
+                <p>
+                    Obrt Itea ne odgovara za štetu ili povredu (uključujući, ali ne isključivo, posebnu ili posljedičnu štetu) koja može biti rezultat korištenja ili nemogućnosti korištenja bilo kojeg dijela ove web lokacije, ili nečega što je u njoj objavljeno ili dodano od strane drugih korisnika.
+                </p>
+                <p>
+                    Nadalje, Obrt Itea ne preuzima nikakvu zakonsku odgovornost za točnost, potpunost ili korisnost podataka i postupaka ovdje prikazanih te ne jamči da korištenje informacija ili proizvoda neće uznemirivati privatna prava.
+                </p>
+                <p>
+                    Obrt Itea ne daje jamstvo ili pravo prigovora u pogledu točnosti i potpunosti bilo kojih materijala koji se nalaze na njegovim internet stranicama i te materijale treba uzeti “takvima kakvi jesu”, te se Obrt Itea ne smatra odgovornim za eventualne posljedice koje mogu proizaći iz drugačijeg tumačenja materijala na Internet stranicama.
+                </p>
+                <p>
+                    Medijski subjekti i ostali korisnici koji koriste ove internet stranice, izrijekom prihvaćaju izvršiti naknadu Obrtu Itea za bilo kakva i sva potraživanja, troškove, štete ili odgovornosti koje nastaju nesavjesnim korištenjem materijala s internet stranica od strane istog korisnika, uključujući i bilo kakvu izravnu, neizravnu, slučajnu, posebnu ili posljedičnu štetu.
+                </p>
+
+                <h4>Točnost podataka</h4>
+                <p>
+                    Svi podaci sadržani na našim internet stranicama ne moraju biti u cijelosti potpuni niti ispravni. Obrt Itea ne jamči potpunu točnost niti cjelovitost objavljenih podataka.
+                </p>
+                <p>
+                    U rijetkom slučaju pogreške Obrt Itea će istu nastojati ispraviti u svom ažuriranju sadržaja internet stranica. Točnost podataka objavljenih na internet stranicama najviše ovisi o načinu iznošenja tih podataka u javno dostupnim izvorima.
+                </p>
+                <p>
+                    Obrt Itea je na temelju vlastitih istraživanja i prikupljenih podataka upotpunio ili promijenio primjetno netočne podatke.
+                </p>
+
+                <h4>Statistika poslužitelja</h4>
+                <p>
+                    Naš poslužitelj globalne mreže koristi statističke softver programe za upravljanje mrežom, koji se koriste za upravljanje ovim stranicama.
+                </p>
+                <p>
+                    Ti programi su standardno obilježje svih web poslužitelja i nisu karakteristični samo za naše stranice.
+                </p>
+                <p>
+                    Takvi statistički programi nam omogućuju utvrđivanje onih podataka koji najviše ili najmanje zanimaju naše korisnike, kakav preglednik je potrebno uvesti, učinkovitost strukture naše lokacije, te posjećenost naših stranica.
+                </p>
+
+                <h4>Odašiljanje poruka elektronskom poštom</h4>
+                <p>
+                    Kada nam šaljete elektronsku poštu (e-mail) s osobnim podacima po kojima Vas je moguće identificirati, putem e-mail poruke s pitanjem ili komentarom, mi te podatke koristimo u svrhu ispunjenja Vaših zahtjeva te u skladu s europskom uredbom o zaštiti osobnih podataka (EU 2016/679 – GDPR).
+                </p>
+                <p>
+                    Prihvaćanjem naših Uvjeta korištenja ujedno dajete Obrtu Itea privolu za upotrebu Vaših osobnih podataka u svrhu ispunjenja Vaših zahtjeva te potvrđujete da ste upoznati s GDPR odredbom, njenim sadržajem, pravima i obvezama koje iz iste proizlaze.
+                </p>
+
+                <h4>Linkovi</h4>
+                <p>
+                    Činimo sve što je u našoj moći kako bismo osigurali da Vas sva preusmjeravanja s naših Internet stranica upute na Internet stranice čiji je sadržaj kvalitetetan u smislu da ne potiče negativnosti. Međutim, stranice i adrese na mreži se brzo mijenjaju, i ne možemo uvijek jamčiti za sadržaj svake adrese na koju vas usmjerimo.
+                </p>
+                <p>
+                    Ako imate bilo kakva pitanja ili dvojbe u vezi naše politike za zaštitu osobnih podataka, ili u vezi vaših iskustava s ovom Internet adresom, molimo da nas kontaktirate.
+                </p>
+
+                <h4>Sadržaj</h4>
+                <p>
+                    Publikacije i sadržaj koji se nalaze na webu ili bilo koji njihov dio ne mogu se smatrati ponudom ili pozivom na kupnju bilo koje imovine ili prava.
+                </p>
+                <p>
+                    Informacije, mišljenja, zaključci i stavovi koji se iznose zasnivaju se na informacijama što potječu iz izvora u čiju se potpunost i točnost Obrt Itea pouzdaje ili našim vlastitim, ali za koje ne jamči. Utoliko su informacije, mišljenja, zaključci, stavovi izneseni u ovim publikacijama i web stranici podložni promjenama koje zavise o promjenama izvora informacija, kao i o promjenama koje nastupe od trenutka pisanja teksta do njegova čitanja.
+                </p>
+                <p>
+                    Dokument ili njegovi dijelovi ne mogu se kopirati, ili na bilo koji drugi način reproducirati bez navođenja izvora.
+                </p>
+
+                <div class="separator"></div>
+
+                <h4>Opći uvjeti web trgovine</h4>
+                <p><strong>Osnovni izrazi navedeni u ovim Općim uvjetima:</strong></p>
+
+                <div class="seller-box">
+                    <p><strong>Prodavatelj:</strong></p>
+                    <p>OBRT ITEA, OBRT ZA PROIZVODNJU, USLUGE I TRGOVINU</p>
+                    <p>vl. Lea Sušić</p>
+                    <p>Ul. Vrba 15, 10 000 Zagreb – Hrvatska</p>
+                    <p>e-mail: itea.pokloni@gmail.com</p>
+                </div>
+
+                <p>
+                    <strong>Kupac:</strong> Kupac proizvoda je svaka fizička osoba ili pravna osoba koja kupuje proizvode putem Internet trgovine na način kako je to uređeno ovim Općim uvjetima poslovanja.
+                </p>
+                <p>
+                    Kupac odabire barem jedan proizvod, stavi ga u košaricu, pošalje narudžbu Prodavatelju, te po njegovoj potvrdi narudžbe vrši plaćanje na jedan od mogućih načina (e-bankingom; virmanom/uplatnicom u banci, pošti ili FINI).
+                </p>
+                <p>
+                    <strong>www.susic-dizajn.com</strong> stranica služi kao sustav za narudžbe, u daljnjem tekstu “Internet trgovina”.
+                </p>
+
+                <h4>1. Opće odredbe</h4>
+                <p>1.1. Ovi Opći uvjeti dostupni su Kupcima u svako doba i iste je moguće spremiti, ponovno koristiti i reproducirati.</p>
+                <p>1.2. Općim uvjetima uređuju se odnosi između Kupca i Prodavatelja vezano uz uvjete i način naručivanja proizvoda, cijene proizvoda, uvjete i načine plaćanja, uvjete jamstva za ispravnost prodane stvari (tzv. garancije), prava Kupca na pisani prigovor na Proizvode i usluge Prodavatelja, pravo na raskid ugovora, uvjete narudžbe i dostave Proizvoda, zaštite osobnih i drugih podataka i ostala pitanja važna za sklapanje ugovora o kupoprodaji putem Internet trgovine.</p>
+                <p>1.3. Opći uvjeti poslovanja Internet trgovine čine sastavni dio svakog kupoprodajnog ugovora zaključenog između Prodavatelja i Kupca ovim putem.</p>
+                <p>1.4. Prethodno kupnji, kupac u aplikaciji izjavljuje da je pročitao ove Opće uvjete poslovanja i slijedom toga ih prihvatio, kao i da je upoznat da narudžba proizvoda uključuje plaćanje kupoprodajne cijene i troška dostave, gdje je to primjenjivo, te da je obaviješten o uvjetima, rokovima i postupku izvršavanja prava na jednostrani raskid kupoprodajnog ugovora, a koje sve uvjete i obavijesti je razumio i prihvatio.</p>
+                <p>1.5. Kupac fizička osoba može biti samo punoljetna i poslovno sposobna osoba. Ugovor u ime i za račun maloljetnika i potpuno poslovno nesposobne osobe mogu zaključiti njihovi zakonski zastupnici ili skrbnici. Djelomično poslovno sposobne osobe ugovor mogu zaključiti samo uz suglasnost njihovog zakonskog zastupnika ili skrbnika. Za postupanje suprotno ovoj odredbi Prodavatelj ne snosi nikakvu odgovornost.</p>
+                <p>1.6. Kupci su dužni dati točne, važeće i potpune osobne podatke prilikom ispunjavanja registracijskog obrasca. Suprotno postupanje Kupca ovlašćuje Prodavatelja da uskrati prodaju proizvoda ili pružanje svojih usluga.</p>
+                <p>1.7. Prodavatelj je ovlašten, u skladu sa svojom poslovnom politikom, bez potrebe prethodne obavijesti, izmijeniti sadržaj Općih uvjeta, prodajni asortiman proizvoda, maloprodajne cijene i druge podatke vezane uz Internet trgovinu.</p>
+                <p>1.8. Prodavatelj zbog prirode pristupa mrežnim stranicama nije odgovoran za bilo kakvu štetu koja bi mogla nastati na uređajima i/ili vezano uz uređaje Kupaca kojima se pristupa Internet trgovini, kao niti u slučaju nemogućnosti korištenja Internet trgovine od strane Kupca, zbog razloga na koje Prodavatelj ne može utjecati.</p>
+                <p>1.9. Rok za uplatu kupoprodajne cijene proizvoda (iznosa navedenog na potvrđenoj narudžbi) iznosi 2 (dva) radna dana od dana kada Kupac zaprimi obavijest Prodavatelja o potvrđenoj narudžbi. U slučaju da Kupac u tom roku ne izvrši uplatu kupoprodajne cijene, a Prodavatelj i Kupac nisu ugovorili nešto drugačije, potvrda narudžbe postaje neobvezujuća za Prodavatelja i ista se briše iz sustava.</p>
+
+                <h4>2. Načini plaćanja</h4>
+                <p>2.1. Platitelj u pravilu mora biti osoba ili pravna osoba koja je primatelj naručenog proizvoda. U slučajevima kada primatelj i platitelj nisu ista osoba, kao i u slučaju kada platitelj nije državljanin Hrvatske, pridržava se pravo na dodatnu provjeru identiteta platitelja i njegove prethodne pisane izjave preko e-pošte da je platitelj suglasan s plaćanjem naručene robe i da je primio obavijest o uvjetima, rokovima i postupku izvršavanja prava na jednostrani raskid ugovora.</p>
+                <p>Nakon slanja narudžbe s ovim načinom plaćanja ne može se promijeniti sadržaj narudžbe, konačni iznos, adresa za dostavu i drugi dogovoreni uvjeti. Kada Kupac želi promijeniti nešto od navedenog, potrebno je stornirati narudžbu i plaćanje te napraviti novu narudžbu.</p>
+                <p>2.2. Plaćanje po ponudi – Ako ste se odlučili za plaćanje po ponudi, na elektronsku adresu primatelja računa poslat ćemo ponudu sa svim podacima i uvjetima. Po primitku sredstava na naš poslovni račun, roba će biti poslana na adresu za dostavu.</p>
+            
+                <p>2.3. Sve do potpune isplate kupoprodajne cijene, naručeni proizvodi ostaju u vlasništvu Prodavatelja čak i onda kada su već dostavljeni Kupcu.</p>
+                <p>2.4. Račun se Kupcu dostavlja uz primljenu robu. Račun je moguće dobiti i putem e-maila koji je Kupac označio kao e-mail za korespodenciju.</p>
+
+                <h4>3. Cijene</h4>
+                <p>3.1. Sve cijene predstavljaju maloprodajne cijene i izražene su u Eurima (EUR) te ne uključuju PDV. Obrt Itea pridržava pravo izmjene maloprodajnih cijena, osim u slučaju ako nije navedeno drugačije (slučaj akcija i drugih posebnih vrsta prodaje). Maloprodajne cijene važe u trenutku zaprimanja narudžbe i nemaju unaprijed određeno važenje. Maloprodajne cijene vrijede u slučaju plaćanja gore navedenim načinima i pod gore navedenim uvjetima.</p>
+                <p>3.2. Valjanost akcijske ponude – razdoblja trajanja i uvjeti akcija i drugih posebnih oblika prodaje (akcijska prodaja, rasprodaja, sezonsko sniženje i sl.), navedeni su uz svaku takvu ponudu.</p>
+
+                <h4>4. Pravo Kupca na jednostrani raskid kupoprodajnog ugovora</h4>
+                <p>4.1. Kupac ima pravo, ne navodeći razloge za to jednostrano raskinuti ugovor o kupoprodaji zaključen putem Internet trgovine, u roku od 14 (četrnaest) dana od dana kada je njemu ili osobi koju je on odredio kao primatelja, a koja nije prijevoznik, proizvod predan u posjed. Kupac to može učiniti putem bilo kakve nedvosmislene pisane izjave kojom izražava svoju volju da raskine zaključeni kupoprodajni ugovor, poslane Prodavatelju na adresu Obrt Itea, Ul. Vrba 15, 10000 Zagreb, ili e-mail itea.pokloni@gmail.com, u kojoj izjavi će navesti svoje ime i prezime, adresu, broj telefona, e-mail i podatke o primljenom proizvodu.</p>
+                <p>4.2. Prodavatelj je dužan bez odgađanja dostaviti Kupcu potvrdu o primitku izjave o raskidu ugovora. U slučaju da Kupac izvrši raskid ugovora, Prodavatelj će Kupcu najkasnije u roku od 14 (četrnaest) dana od dana kada je zaprimio vraćeni Proizvod, vratiti cjelokupni plaćeni iznos, umanjen za trošak dostave kada isti postoji, u skladu sa uvjetima iz ovih Općih uvjeta, na isti način kako je uplata izvršena, osim ako Kupac izričito ne pristane na neko drugo sredstvo plaćanja i uz pretpostavku da Kupac nije u obvezi platiti nikakve dodatne troškove za takav povrat. Povrat plaćenog iznosa bit će Kupcu izvršen isključivo nakon što Prodavatelj na adresu označenu na računu zaprimi proizvod ili potvrdu da je proizvod poslan na adresu Kupca.</p>
+                <p>4.3. Trošak povrata robe s osnova jednostranog raskida ugovora od strane Kupca snosi Kupac.</p>
+                <p>4.4. Kupac prethodno narudžbi proizvoda u aplikaciji Prodavatelja jasno potvrđuje da je primio ovu obavijest o pravu na jednostrani raskid ugovora. U slučaju raskida ugovora od strane Kupca kako je to gore navedeno, za povrat cjelokupno primljenog iznosa novca, vraćeni proizvodi moraju biti nerabljeni, neoštećeni i u neoštećenoj originalnoj ambalaži uz priloženu presliku računa.</p>
+                <p>4.5. Kupac odgovara za svako umanjenje vrijednosti robe, koja je rezultat rukovanja robom, osim onog koje je bilo potrebno za utvrđivanje prirode, obilježja i funkcionalnosti proizvoda, stoga:</p>
+                <p>4.5.1. – u slučaju oštećene ili nedostajuće ambalaže proizvoda ne preuzimati proizvod već vratiti Prodavatelju uz napomenu o nedostacima ambalaže, u suprotnom smatra se da je proizvod preuzet sa neoštećenom ambalažom;</p>
+                <p>4.5.3. – ukoliko proizvod ima vidljivih oštećenja (npr. slomljeni ili nedostajući dio, oštećenja u obliku ogrebotina, pukotina, fleka i sl….) potrebno je što prije obavijestiti Obrt Itea;</p>
+                <p>4.5.4. – Prodavatelj odgovora za materijalne nedostatke proizvoda.</p>
+
+                <h4>5. Dostupnost proizvoda i rok isporuke</h4>
+                <p>5.1. Rok isporuke, pod uvjetom da Prodavatelj Proizvod drži na skladištu, iznosi najviše pet radnih dana za isporuke koje se imaju izvršiti Kupcima na teritoriju kopna, a najviše osam radnih dana za isporuke koje se imaju izvršiti Kupcima na teritorij otoka, sve računajući od trenutka kada Kupac na svoju e-poštu koju je naznačio u narudžbi primi elektronsku obavijest da je narudžba potvrđena. Iznimno, za proizvode koje Prodavatelj ne drži na skladištu, rok isporuke može biti dulji od prethodno navedenih. Također, rok isporuke može se produljiti i u slučaju događaja koje Prodavatelj nije mogao predvidjeti niti spriječiti. U oba slučaja Kupac će na način kako je to propisano ovim uvjetima biti pravovremeno obaviješten o predviđenom roku isporuke.</p>
+                <p>5.2. Dostava proizvoda Kupcu obavlja se isključivo radnim danom u radnom vremenu dostavnih službi. Kontakt broj telefona Kupca bit će naznačen na pošiljci kako bi se mogao kontaktirati u slučaju bilo kakvih problema.</p>
+                <p>5.3. Cijena dostave pošiljke izračunava se po važećem cjeniku Hrvatske pošte d.d. a ovisno o ukupnoj težini pošiljke.</p>
+                <p>5.4. Kupljeni Proizvodi bit će dostavljeni u skladu sa gore navedenim ukoliko je do adrese naznačene za dostavu moguće pristupiti sa javno prometne površine prijevoznim sredstvom.</p>
+                <p>5.5. U slučaju da prilikom dostave nije prisutan Kupac osobno, kupljeni proizvod može preuzeti druga punoljetna osoba koju je Kupac naveo u narudžbi ili u napomeni. Osoba koja preuzima kupljeni proizvod i sve prateće dokumente prilikom primopredaje navodi svoje ime i prezime, svojstvo povezanosti sa Kupcem, datum zaprimanja i potpisuje primopredajnu dokumentaciju.</p>
+
+                <h4>6. Zaštita osobnih podataka korisnika mrežnih stranica i društvenih mreža</h4>
+                <p>6.1. Osobni podaci Kupaca proizvoda i usluga i korisnika mrežnih stranica Obrta Itea, kao i korisnika društvenih mreža (npr: Facebook, Instagram i sl.), koje mrežne stranice i društvene mreže su upravljane od strane Obrta Itea zaštićeni su i čuvaju se trajno u skladu sa Zakonom o zaštiti osobnih podataka. Tako prikupljeni osobni podaci bit će upotrijebljeni isključivo u svrhu zaključenja i ispunjenja ugovora i usluga koje se pružaju.</p>
+                <p>6.2. Osobni podaci mogu biti upotrijebljeni i za informiranje korisnika o ponudama proizvoda i druge slične marketinške ili promotivne komunikacije.</p>
+                <p>6.3. Svi se podaci o korisnicima strogo čuvaju i dostupni su samo za to ovlaštenim djelatnicima i onima kojima su ti podaci nužni za obavljanje posla.</p>
+                <p>6.4. Korisnik je ovlašten u svako doba zatražiti dopunu, izmjenu ili brisanje osobnih podataka, kao i usprotiviti se obradi osobnih podataka u svrhu informiranja na mail: <strong>itea.pokloni@gmail.com</strong>.</p>
+                <p>6.5. Korisnik jamči da su podaci koje je naveo točni, potpuni, ažurni i istiniti te korištenjem mrežnih stranica i društvenih mreža Obrta Itea potvrđuje da je suglasan sa uporabom njegovih osobnih podataka na način i u svrhu kako je to gore navedeno.</p>
+
+                <h4>7. Uporaba kolačića (cookies) na mrežnim stranicama i društvenim mrežama Obrta Itea</h4>
+                <p>7.1. Obrt Itea može koristiti kolačiće (tzv. Cookies) za prikupljanje i obrađivanje podataka korisnika. Ti se podaci koriste u svrhu prikupljanja skupnih statističkih podataka o korisnicima, te datumu i vremenu njihovog pristupa mrežnim i društvenim stranicama.</p>
+                <p>U slučaju da podaci prikupljeni putem kolačića predstavljaju osobne podatke korisnika, na iste se primjenjuju sva pravila predviđena za zaštitu osobnih podataka kupaca i korisnika mrežne stranice Obrta Itea i društvenih mreža.</p>
+
+                <h4>8. Poveznice na mrežne stranice ili društvene mreže trećih osoba</h4>
+                <p>8.1. Mrežne stranice i društvene mreže Obrta Itea mogu uključivati poveznice (tzv. link) na mrežne stranice ili društvene mreže trećih osoba.</p>
+                <p>8.2. Zbog prirode globalne mreže Obrt Itea jamči zaštitu osobnih podataka u skladu sa gore navedenim pravilima isključivo za mrežne stranice i društvene mreže kojima upravlja, a ne i za treće osobe.</p>
+
+                <h4>9. Komunikacija</h4>
+                <p>9.1. Sva komunikacija koja se odnosi na proces narudžbe i sklapanje ugovora o kupoprodaji između Prodavatelja i Kupca obavlja se putem e-pošte ili drugim pisanim putem. Narudžbe putem telefona, tj. usmene narudžbe Obrt Itea ne prihvaća i kao takve ne smatra važećim.</p>
+                <p>9.2. Obavijesti o mjesečnim akcijama i reklamne elektronske poruke koje Prodavatelj šalje Kupcu moraju biti jasno i nedvosmisleno označene kao reklamne poruke. Pošiljatelj mora biti jasno vidljiv. Prodavatelj će bezuvjetno poštovati želju Kupca ili Korisnika da ne prima reklamne poruke i obavijesti o mjesečnim akcijama.</p>
+
+                <h4>10. Oslobađanje od odgovornosti</h4>
+                <p>10.1. Prodavatelj se svojim najboljim naporima trudi osigurati sukladnost i ažurnost podataka objavljenih na mrežnim stranicama. Unatoč tome mogu se karakteristike proizvoda, njihovo stanje na skladištu i cijena promijeniti tako brzo da Prodavatelj ne uspije na vrijeme ažurirati podatke na internetskim stranicama. U tom slučaju Prodavatelj će Kupca u najkraćem mogućem vremenskom razdoblju obavijestiti o promjenama i omogućiti mu opoziv narudžbe, zamjenu naručenog proizvoda ili povrat novca.</p>
+                <p>10.2. Sve fotografije proizvoda na mrežnoj stranici Obrta Itea su vlasništvo Prodavatelja i kao takve se ne mogu koristiti, reproducirati ili objavljivati bez pisanog odobrenja Prodavatelja. Sve fotografije i opisi proizvoda su informativne naravi i mogu se u naravi blago razlikovati od navedenoga.</p>
+
+                <h4>11. Pisani prigovori Kupaca i sporovi</h4>
+                <p>11.1. Ovi Opći uvjeti sačinjeni su u skladu sa Zakonom o zaštiti potrošača i drugim propisima Republike Hrvatske. Svoje pisane prigovore na proizvode ili usluge Prodavatelja Kupci mogu predati neposredno u poslovnim prostorima na adresi sjedišta Prodavatelja ili poslati na adresu Prodavatelja i to putem pošte ili elektronskom poštom kako je to navedeno u podacima Prodavatelja.</p>
+                <p>11.2. Prodavatelj je dužan bez odgađanja potvrditi da je pisani prigovor Kupca primio, obavijestiti Kupca koliko će trajati njegova obrada i pravovremeno ga obavještavati o tijeku tog postupka, a najkasnije u roku od 15 (petnaest) dana od dana zaprimanja pisanog prigovora na isti odgovoriti.</p>
+                <p>11.3. Prodavatelj i Kupac će moguće sporove svim silama nastojati riješiti sporazumno, a ukoliko u tome ne uspiju, Kupac može podnijeti prijavu Sudu časti Hrvatske gospodarske komore ili podnijeti prijedlog za mirenje ovlaštenim Centrima za mirenje. Postupak pred sudovima časti provodi se sukladno Pravilniku o Sudu časti pri Hrvatskoj gospodarskoj komori, a pred centrima za mirenje sukladno Zakonu o mirenju i Pravilnika o mirenju odabranog centra za mirenje. U slučaju spora pred sudom je nadležan sud na čijem se području nalazi sjedište Prodavatelja.</p>
+
+                <h4>Rješavanje sporova preko online platforme ORS</h4>
+                <p>
+                    Odredbom Europske komisije br. 524/2013 o on-line rješavanju potrošačkih sporova koja se primjenjuje od 09.01.2016 godine, u upotrebu je stavljena Platforma za online rješavanje potrošačkih sporova (Platforma za ORS).
+                </p>
+                <p>
+                    Elektronska poveznica (link) na Platformu za ORS – 
+                    <a href="http://ec.europa.eu/odr" target="_blank" rel="noopener noreferrer">http://ec.europa.eu/odr</a>
+                </p>
+                <p>
+                    Ovaj link potrošači mogu koristiti za prekogranične potrošačke sporove. Za potrošačke sporove u odnosu na trgovce iz Republike Hrvatske ta mogućnost ne postoji dok procedura ne bude podržana potrebnom zakonskom regulativom od strane ovlaštenih tijela RH.
+                </p>
+
+                <h4>Reklamacije i povrat robe</h4>
+                <p>
+                    Ukoliko ustanovite, prilikom prve uporabe, da je proizvod kojeg ste dobili neispravan ili njime niste zadovoljni, molimo vas da nas kontaktirate i slijedite navedene korake:
+                </p>
+                <p>
+                    Pošaljite nam informacije s brojem narudžbe, brojem računa i opisom reklamacije e-mailom na <strong>itea.pokloni@gmail.com</strong>, putem online chata na stranici ili kontakt obrasca.
+                </p>
+                <p>
+                    Poslat ćemo Vam potvrdu primitka reklamacije i, temeljem Vašeg opisa reklamacije, informaciju o tome:
+                </p>
+                <ul>
+                    <li>može li se proizvod zamijeniti za novi,</li>
+                    <li>može li se za proizvod vratiti novac,</li>
+                    <li>ili neko potencijalno treće rješenje spora.</li>
+                </ul>
+                <p>
+                    U slučajevima kad se proizvod može zamijeniti za novi i kad se za proizvod može vratiti novac, reklamirani proizvod neophodno je vratiti Prodavatelju najkasnije u roku 8 (osam) dana od primitka suglasnosti za reklamaciju od strane Prodavatelja.
+                </p>
+                <p>
+                    Po primitku neispravnog proizvoda šaljemo Vam obavijest o povratu novaca/slanju zamjenskog proizvoda. Povrat novca/zamjena za novi proizvod bit će odrađena u najkraćem mogućem roku (ovisno o stanju zaliha Prodavatelja), a najkasnije nakon 30 (trideset) dana.
+                </p>
+                <p>
+                    U suprotnom nas kontaktirajte na e-mail <strong>itea.pokloni@gmail.com</strong> ili putem kontakt obrasca na stranici.
+                </p>
+            </div>
+        </section>
+
+        <div class="footer">
+            © 2024 Sušić Design / Obrt Itea
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerija | Sušić Design</title>
+    <meta name="description" content="Galerija unikatnih i personaliziranih poklona Sušić Design.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'premium-gold': '#D4AF37',
+                        'premium-burgundy': '#800020',
+                        'premium-cream': '#F5F1E8',
+                        'premium-charcoal': '#2C3E50',
+                        'premium-sage': '#8A9A5B'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #F5F1E8 0%, #FFFFFF 50%, #F5F1E8 100%);
+        }
+
+        .gold-border {
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+
+        .gallery-card {
+            transition: all 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.10);
+        }
+
+        .gallery-img {
+            transition: transform 0.35s ease;
+            cursor: pointer;
+        }
+
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.03);
+        }
+
+        .hero-button {
+            background: linear-gradient(135deg, #d4af37, #b8962e);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.35s ease;
+            box-shadow: 0 8px 20px rgba(212,175,55,0.35);
+        }
+
+        .hero-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(212,175,55,0.45);
+            background: linear-gradient(135deg, #e2c14a, #caa230);
+        }
+
+        .hero-button-outline {
+            background: white;
+            color: #2C3E50;
+            padding: 14px 32px;
+            border-radius: 9999px;
+            font-weight: 600;
+            border: 2px solid #d4af37;
+            transition: all 0.35s ease;
+        }
+
+        .hero-button-outline:hover {
+            background: #F5F1E8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.82);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 9999;
+        }
+
+        .lightbox.show {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 95vw;
+            max-height: 88vh;
+            border-radius: 18px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+            background: white;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            color: white;
+            font-size: 34px;
+            cursor: pointer;
+        }
+
+        .custom-cta-button {
+    background: linear-gradient(135deg, #d4af37, #b8962e);
+    color: white;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.28);
+    transition: all 0.3s ease;
+}
+
+.custom-cta-button:hover {
+    background: linear-gradient(135deg, #e2c14a, #caa230);
+    box-shadow: 0 16px 35px rgba(212, 175, 55, 0.38);
+    transform: translateY(-2px);
+}
+
+
+.gold-shimmer {
+    background: linear-gradient(
+        90deg,
+        #2C3E50 0%,
+        #2C3E50 40%,
+        #d4af37 50%,
+        #2C3E50 60%,
+        #2C3E50 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmerMove 6s linear infinite;
+}
+
+@keyframes shimmerMove {
+    from {
+        background-position: 200% center;
+    }
+    to {
+        background-position: -200% center;
+    }
+}
+
+    </style>
+</head>
+
+<body class="min-h-screen font-sans text-premium-charcoal">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+
+                <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+                    <div class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden border-2 border-premium-gold bg-white shadow-sm flex-shrink-0">
+                        <img src="images/logo.jpeg"
+                             alt="Sušić Design logo"
+                             class="w-full h-full object-contain p-1">
+                    </div>
+
+                    <div class="min-w-0">
+                        <h1 class="font-serif font-bold text-premium-charcoal leading-none text-lg sm:text-xl md:text-2xl tracking-wide">
+                            Sušić Design
+                        </h1>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-1 leading-tight">
+                            Premium ručno izrađeni pokloni
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex space-x-4">
+                    <a href="https://www.instagram.com/vjecnisanjar_pokloni" class="text-premium-charcoal hover:text-premium-gold transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1Cf3LpAQ8A/" class="text-premium-charcoal hover:text-premium-gold transition-colors">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                </div>
+
+                <a href="index.html" class="hero-button-outline">
+                    Povratak na početnu
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="gold-shimmer font-serif text-4xl md:text-5xl font-bold mb-6">
+    Kolekcija unikatnih poklona
+</h2>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                    Svaki poklon u našoj galeriji izrađen je s pažnjom na detalje, estetiku i osobnu priču koju želite prenijeti.
+                    Odaberite model koji Vam se sviđa i pošaljite upit za personaliziranu izradu ili nam se javite i složiti ćemo nešto specijalno po vašoj želji za bilo koju prigodu.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+   <section class="pb-20">
+    <div class="container mx-auto px-4">
+
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+        <!-- Custom gift CTA -->
+        <div class="text-center mt-16 max-w-2xl mx-auto">
+
+            <h3 class="font-serif text-2xl md:text-3xl font-bold text-premium-charcoal mb-4">
+                Tražite potpuno personalizirani poklon?
+            </h3>
+
+            <p class="text-gray-700 mb-8 leading-relaxed">
+                Ako u galeriji niste pronašli ono što tražite, slobodno nam pošaljite upit. 
+                Zajedno možemo osmisliti potpuno unikatni poklon prilagođen Vašim željama.
+            </p>
+
+          <a href="index.html#contact"
+   class="custom-cta-button inline-block px-10 py-4 rounded-full font-semibold text-lg">
+    Pošaljite upit za potpuno personalizirani poklon
+</a>
+
+        </div>
+
+    </div>
+</section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span id="lightbox-close" class="lightbox-close">&times;</span>
+        <img id="lightbox-image" src="" alt="Uvećana slika">
+    </div>
+
+    <script>
+        const galleryItems = [
+            {
+                title: "Poslovni poklon",
+                code: "44335",
+                image: "images/poslovni.jpg.jpeg",
+                alt: "Poslovni poklon"
+            },
+            {
+                title: "Poklon za kumstvo",
+                code: "44336",
+                image: "images/kumstvo.jpg.jpeg",
+                alt: "Poklon za kumstvo"
+            },
+            {
+                title: "Poklon za rođendan",
+                code: "44337",
+                image: "images/rodzendani.jpg.jpeg",
+                alt: "Poklon za rođendan"
+            },
+            {
+                title: "Zahvalnica privjesci",
+                code: "44338",
+                image: "images/zahvalnicaprivjesci.jpg.jpeg",
+                alt: "Zahvalnica privjesci"
+            },
+            {
+                title: "Keramička krila",
+                code: "44339",
+                image: "images/keramickakrila.jpg.jpeg",
+                alt: "Keramička krila"
+            },
+            {
+                title: "Čoko zahvalnica",
+                code: "44340",
+                image: "images/cokozahvlanica.jpg.jpeg",
+                alt: "Čoko zahvalnica"
+            },
+
+            {
+    title: "Uskrsni poklon",
+    code: "44341",
+    image: "images/Egg.jpg",
+    alt: "Uskrsni poklon"
+},
+{
+    title: "Personalizirane vrećice",
+    code: "44342",
+    image: "images/vrecice.jpg",
+    alt: "Personalizirane vrećice"
+},
+{
+    title: "Personalizirane čokoladice",
+    code: "44343",
+    image: "images/krstenjecokoladica.jpg",
+    alt: "Personalizirane čokoladice"
+},
+{
+    title: "Poklon za Dan očeva",
+    code: "44344",
+    image: "images/tata.jpg",
+    alt: "Poklon za Dan očeva"
+},
+{
+    title: "Čokoladni upit za krizmanu kumu",
+    code: "44345",
+    image: "images/krizmanakuma.jpg",
+    alt: "Čokoladni poklon za krizmanu kumu"
+},
+{
+    title: "Pokloni za Valentinovo",
+    code: "44346",
+    image: "images/Valentinovo.jpg.jpg",
+    alt: "Pokloni za Valentinovo"
+}
+
+
+
+        ];
+
+        function renderGalleryItems(items) {
+            return items.map(item => `
+                <article class="gallery-card bg-white rounded-2xl overflow-hidden shadow-lg gold-border">
+                    <div class="overflow-hidden">
+                        <img 
+    src="${item.image}" 
+    alt="${item.alt}" 
+    class="gallery-img w-full h-96 md:h-[420px] object-cover"
+    loading="lazy"
+    onclick="openLightbox('${item.image}', '${item.alt}')"
+>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-4 mb-3">
+                            <h3 class="font-serif text-2xl font-bold text-premium-charcoal">
+                                ${item.title}
+                            </h3>
+                            <span class="text-sm font-semibold text-premium-gold whitespace-nowrap">
+                                Šifra: ${item.code}
+                            </span>
+                        </div>
+
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Unikatni ručno izrađeni poklon koji se može dodatno personalizirati prema Vašim željama.
+                        </p>
+
+                        <a 
+                            href="index.html?product=${encodeURIComponent(item.code)}#contact"
+                            class="hero-button inline-block text-center w-full"
+                        >
+                            Pošaljite upit za ovaj poklon
+                        </a>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function openLightbox(src, alt) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+
+            lightboxImage.src = src;
+            lightboxImage.alt = alt;
+            lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('gallery-grid').innerHTML = renderGalleryItems(galleryItems);
+
+            const lightbox = document.getElementById('lightbox');
+            const closeBtn = document.getElementById('lightbox-close');
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

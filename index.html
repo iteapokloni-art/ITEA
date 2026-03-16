@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sušić Design - Premium Ručno Izrađeni Pokloni</title>
+    <meta name="description" content="Premium hrvatski gift shop s ručno izrađenim i personaliziranim poklonima. Elegantni dizajn, vrhunska kvaliteta i osobni pristup.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'premium-gold': '#D4AF37',
+                        'premium-burgundy': '#800020',
+                        'premium-cream': '#F5F1E8',
+                        'premium-charcoal': '#2C3E50',
+                        'premium-sage': '#8A9A5B'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    spacing: {
+                        '128': '32rem',
+                        '144': '36rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+.hero-gradient {
+    background:
+        linear-gradient(135deg, #F5F1E8 0%, #FFFFFF 50%, #F5F1E8 100%),
+        radial-gradient(circle at 15% 25%, rgba(212,175,55,0.35), transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(212,175,55,0.30), transparent 50%);
+}
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .gold-border {
+            border: 1px solid #D4AF37;
+        }
+        .section-divider {
+            border-top: 1px solid #E5E7EB;
+            margin: 4rem 0;
+        }
+
+     .blog-carousel-wrapper {
+    position: relative;
+    max-width: 100%;
+    padding-left: 5.5rem;
+    padding-right: 5.5rem;
+}
+
+.blog-slider-viewport {
+    overflow: hidden;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+#blog-slider {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.blog-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    width: 100%;
+}
+
+.blog-arrow {
+    width: 52px;
+    height: 52px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2C3E50;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
+}
+
+.blog-arrow:hover {
+    background: #D4AF37;
+    color: white;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 14px 30px rgba(212, 175, 55, 0.28);
+}
+
+.blog-arrow:active {
+    transform: translateY(-50%) scale(0.96);
+}
+
+.blog-arrow:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: translateY(-50%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.blog-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    background-color: #D1D5DB;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.blog-dot.active {
+    background-color: #D4AF37;
+    transform: scale(1.2);
+}
+
+.blog-post-content {
+    word-break: break-word;
+}
+
+@media (max-width: 767px) {
+    .blog-carousel-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 4.5rem;
+    }
+
+    .blog-slider-viewport {
+        overflow: hidden;
+        border-radius: 1rem;
+    }
+
+    .blog-slide {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .blog-arrow {
+        width: 46px;
+        height: 46px;
+        top: auto !important;
+        bottom: 0;
+        transform: none !important;
+    }
+
+    .blog-arrow:hover,
+    .blog-arrow:active,
+    .blog-arrow:disabled {
+        transform: none !important;
+    }
+
+    #blog-prev {
+        left: calc(50% - 58px) !important;
+    }
+
+    #blog-next {
+        right: calc(50% - 58px) !important;
+    }
+}
+
+.success-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.success-modal.show {
+    display: flex;
+    animation: modalFadeIn 0.25s ease;
+}
+
+.success-modal-card {
+    width: 100%;
+    max-width: 560px;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    animation: modalScaleIn 0.25s ease;
+}
+
+.success-modal-top {
+    background: linear-gradient(135deg, #D4AF37 0%, #b89222 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem 1.5rem 1.5rem;
+}
+
+.success-modal-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.success-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.success-modal-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+.success-modal-body p {
+    margin: 0 0 1rem;
+    color: #4B5563;
+    line-height: 1.7;
+}
+
+.success-modal-body .lead {
+    color: #2C3E50;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.success-modal-body .tagline {
+    color: #800020;
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.success-modal-close {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background: #D4AF37;
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.success-modal-close:hover {
+    background: #b89222;
+    transform: translateY(-1px);
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 640px) {
+    .success-modal-top {
+        padding: 1.75rem 1rem 1.25rem;
+    }
+
+    .success-modal-title {
+        font-size: 1.7rem;
+    }
+
+    .success-modal-body {
+        padding: 1.5rem 1.25rem;
+    }
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.gold-shimmer {
+    background: linear-gradient(
+        120deg,
+        #b8860b 0%,
+        #d4af37 18%,
+        #fff1a8 32%,
+        #d4af37 46%,
+        #b8860b 60%
+    );
+    background-size: 250% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: goldShimmer 4s linear infinite;
+}
+
+@keyframes goldShimmer {
+    0% {
+        background-position: 200% center;
+    }
+    100% {
+        background-position: -200% center;
+    }
+}
+
+
+.premium-button:hover {
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+    transform: translateY(-2px);
+}
+
+.gallery-img {
+    transition: transform 0.4s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+.hero-button {
+    background: linear-gradient(135deg, #d4af37, #b8962e);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 9999px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.35s ease;
+    box-shadow: 0 8px 20px rgba(212,175,55,0.35);
+}
+
+.hero-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(212,175,55,0.45);
+    background: linear-gradient(135deg, #e2c14a, #caa230);
+}
+
+.hero-button-outline {
+    background: white;
+    color: #2C3E50;
+    padding: 14px 32px;
+    border-radius: 9999px;
+    font-weight: 600;
+    border: 2px solid #d4af37;
+    transition: all 0.35s ease;
+}
+
+.hero-button-outline:hover {
+    background: #F5F1E8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+.blog-text-clamp {
+    overflow: hidden;
+    line-height: 1.7;
+    max-height: 8.5em;
+}
+
+.blog-toggle-btn{
+    display:inline-block;
+    margin-bottom:1rem;
+    padding:0.5rem 1rem;
+    border-radius:999px;
+    border:1px solid rgba(212,175,55,0.5);
+    font-weight:600;
+    font-size:0.9rem;
+    color:#2C3E50;
+    background:white;
+    cursor:pointer;
+    transition:all .25s ease;
+}
+
+.blog-toggle-btn:hover{
+    background:#D4AF37;
+    color:white;
+    box-shadow:0 6px 18px rgba(212,175,55,0.25);
+}
+    </style>
+</head>
+<body class="min-h-screen bg-premium-cream font-sans text-premium-charcoal">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                
+                <!-- Logo + Brand -->
+                <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+                    <div class="w-12 h-12 md:w-14 md:h-14 lg:w-15 lg:h-15
+                 rounded-full overflow-hidden border-2 border-premium-gold bg-white shadow-sm flex-shrink-0">
+                        <img src="images/logo.jpeg" 
+                             alt="Sušić Design logo"
+                             class="w-full h-full object-contain p-1">
+                    </div>
+
+                    <div class="min-w-0">
+                        <h1 class="font-serif font-bold text-premium-charcoal leading-none text-lg sm:text-xl md:text-2xl tracking-wide">
+                            Sušić Design
+                        </h1>
+                    <p>Promotivni i personalizirani pokloni za sve prigode</p>
+                    </div>
+                </div>
+
+                <!-- Social media icons -->
+                <div class="flex space-x-4">
+                    <a href="https://www.instagram.com/vjecnisanjar_pokloni" class="text-premium-charcoal hover:text-premium-gold transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1Cf3LpAQ8A/" class="text-premium-charcoal hover:text-premium-gold transition-colors">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="w-full md:w-auto">
+                    <ul id="nav-list" class="flex flex-wrap justify-center md:justify-end gap-4 md:gap-8"></ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-gradient py-16 md:py-24">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-premium-charcoal mb-6">
+                    Ručno Izrađeni Pokloni <span class="gold-shimmer">Premium Kvalitete</span>
+                </h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+                    Svaki poklon je jedinstveno umjetničko djelo, pažljivo izrađeno s ljubavlju i posvećenošću. 
+                    Personalizacija koja ostavlja bez daha.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#portfolio" class="hero-button-outline">
+    Pogledajte galeriju
+</a>
+       <a href="#contact" class="hero-button">
+    Kreirajte svoj poklon
+</a>       </div>
+                <p class="mt-8 text-gray-600 italic">
+                    * Svaki poklon se izrađuje ručno i personalizirano prema Vašim željama
+                </p>
+            </div>
+        </section>
+
+        <!-- Portfolio Gallery -->
+   <section id="portfolio" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-center text-premium-charcoal mb-12">
+            Naša Galerija
+        </h2>
+
+        <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+        <!-- Gumb za cijelu galeriju -->
+        <div class="text-center mt-12">
+
+            <a href="galerija.html"
+               class="inline-block bg-premium-gold text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-yellow-600 transition-all shadow-lg hover:shadow-xl">
+
+                Pogledajte cijelu galeriju
+
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+        <!-- Services -->
+        <section id="usluge" class="py-16 bg-premium-cream reveal">
+            <div class="container mx-auto px-4">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-center text-premium-charcoal mb-12">
+                    Naše Usluge
+                </h2>
+                <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <!-- Blog Section -->
+<!-- Blog Section -->
+<section id="blog" class="py-16 bg-white overflow-hidden reveal">
+    <div class="container mx-auto px-4">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-center text-premium-charcoal mb-12">
+            Blog & Inspiracije
+        </h2>
+
+        <div class="max-w-5xl mx-auto">
+            <div class="relative blog-carousel-wrapper">
+                <button id="blog-prev"
+    class="blog-arrow absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10"
+    aria-label="Prethodni blog post">
+    <i class="fas fa-chevron-left"></i>
+</button>
+
+                <div class="blog-slider-viewport">
+    <div id="blog-slider" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- blog postovi -->
+                    </div>
+                </div>
+
+                <button id="blog-next"
+    class="blog-arrow absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10"
+    aria-label="Sljedeći blog post">
+    <i class="fas fa-chevron-right"></i>
+</button>
+            </div>
+
+            <div id="blog-dots" class="flex justify-center items-center gap-3 mt-8"></div>
+
+            <div id="blog-loading" class="text-center py-12">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-premium-gold mx-auto"></div>
+                <p class="mt-4 text-gray-600">Učitavam blog postove...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Custom Gift CTA -->
+<section class="py-16 bg-white reveal">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-premium-charcoal mb-6">
+                Imate ideju za poseban poklon?
+            </h2>
+
+            <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                Pošaljite nam svoj upit i zajedno ćemo osmisliti personalizirani poklon 
+                koji će ostaviti dojam i postati uspomena za cijeli život.
+            </p>
+
+            <div class="bg-premium-cream rounded-xl p-8 gold-border shadow-md">
+
+                <p class="text-gray-700 mb-6 text-lg">
+                    Svaki poklon izrađujemo ručno i prilagođavamo vašim željama.
+                    Od gravure i personaliziranih poruka do potpuno unikatnog dizajna.
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact"
+                       class="bg-premium-gold text-white px-8 py-3 rounded-full font-semibold hover:bg-yellow-600 transition-colors">
+                        Pošaljite upit
+                    </a>
+
+                    <a href="#portfolio"
+                       class="bg-white border-2 border-premium-gold text-premium-charcoal px-8 py-3 rounded-full font-semibold hover:bg-premium-cream transition-colors">
+                        Pogledajte galeriju
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+        <!-- Contact Form -->
+        <section id="contact" class="py-16 bg-premium-cream">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-center text-premium-charcoal mb-12">
+                        Kontaktirajte Nas
+                    </h2>
+                    <div class="bg-white rounded-2xl shadow-lg p-8 gold-border">
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Ime i Prezime *</label>
+                                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Ime tvrtke</label>
+                                    <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent">
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email adresa *</label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Broj telefona *</label>
+                                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="delivery-date" class="block text-sm font-medium text-gray-700 mb-2">Očekivani datum isporuke *</label>
+                                <input type="date" id="delivery-date" name="delivery-date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Poruka *</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-transparent" placeholder="Opišite Vaš poklon, želje za personalizacijom, bilješke..."></textarea>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="bg-premium-gold text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-yellow-600 transition-colors">
+                                    Pošaljite upit
+                                </button>
+                                <p class="mt-4 text-sm text-gray-600">
+* Obavezno polje. Odgovaramo u roku od 24 sata - često i brže.
+</p>
+                            </div>
+
+<div class="mt-6 text-sm text-gray-500 flex flex-col sm:flex-row justify-center gap-4">
+    <span><i class="fas fa-check text-premium-gold mr-2"></i>100% ručna izrada</span>
+    <span><i class="fas fa-check text-premium-gold mr-2"></i>Personalizacija po želji</span>
+    <span><i class="fas fa-check text-premium-gold mr-2"></i>Izrada u Hrvatskoj</span>
+</div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-premium-charcoal text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="font-serif text-xl font-bold mb-4">Sušić Design</h3>
+                    <p class="text-gray-300 mb-4">
+                        ITEA obrt za proizvodnju, usluge i trgovinu<br>
+                        vl. Lea Sušić<br>
+                        Ul. Vrba 15, Zagreb<br>
+                        itea.pokloni@gmail.com
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/vjecnisanjar_pokloni" class="text-gray-300 hover:text-premium-gold transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1Cf3LpAQ8A/" class="text-gray-300 hover:text-premium-gold transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-serif text-xl font-bold mb-4">Brzi linkovi</h3>
+                    <ul id="footer-links" class="space-y-2"></ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h3 class="font-serif text-xl font-bold mb-4">Pravne informacije</h3>
+                    <ul id="legal-links" class="space-y-2"></ul>
+                    <p class="mt-6 text-sm text-gray-400">
+                        Svaki poklon se izrađuje ručno i personalizirano.<br>
+                        Vrijeme izrade ovisi o složenosti narudžbe.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="section-divider border-gray-700 mt-8"></div>
+            
+            <div class="text-center text-gray-400 text-sm">
+                <p>&copy; 2024 Sušić Design. Sva prava pridržana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+<div id="success-modal" class="success-modal">
+    <div class="success-modal-card">
+        <div class="success-modal-top">
+            <div class="success-modal-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h3 class="success-modal-title">Hvala Vam!</h3>
+        </div>
+
+        <div class="success-modal-body">
+            <p class="lead">Uspješno ste poslali upit Sušić Designu.</p>
+            <p>
+                Vaša poruka je zaprimljena i uskoro ćemo Vam se javiti kako bismo
+                dogovorili sve detalje i izradili poklon baš po Vašim željama.
+            </p>
+            <p class="tagline">
+                Jer najljepši pokloni su oni izrađeni osobno, s pažnjom i pričom.
+            </p>
+
+            <button id="success-modal-close" class="success-modal-close">
+                Zatvori
+            </button>
+        </div>
+    </div>
+</div>
+
+    <script>
+        // ============================================
+        // DATA LAYER - Centralized content management
+        // ============================================
+
+        // Navigation items data
+        const navigationItems = [
+            { "label": "Početna", "href": "#home" },
+            { "label": "Usluge", "href": "#usluge" },
+            { "label": "Portfolio", "href": "#portfolio" },
+            { "label": "Blog", "href": "#blog" },
+            { "label": "Kontakt", "href": "#contact" }
+        ];
+
+        // Gallery items data
+        const galleryItems = [
+            { 
+                "title": "Promotivni poslovni pokloni", 
+                "description": "Pokloni s Vašim logom ili porukom - savršeno za promocije, događaje i poslovne partnere",
+                "image": "images/poslovni.jpg.jpeg",
+                "alt": "Promotivni polovni pokloni"
+            },
+            { 
+                "title": "Pokloni za kumstvo", 
+                "description": "Personalizirani ručno rađeni pokloni za sve vrste kumstva",
+                "image": "images/kumstvo.jpg.jpeg",
+                "alt": "Pokloni za kumstvo"
+            },
+            { 
+                "title": "Rođendani", 
+                "description": "Kreativni i unikatni pokloni koji svaki rođendan čine još posebnijim",
+                "image": "images/zamjena.jpeg",
+                "alt": "Kristalna vaza s ručnim brušenjem"
+            },
+            { 
+                "title": "Zahvalnice - Privjesci", 
+                "description": "Personalizirani privjesci kao uspomena za sakramente, rođendane i sve Vama važne prilike",
+                "image": "images/zahvalnicaprivjesci.jpg.jpeg",
+                "alt": "Srebrni nakit s poludragim kamenjem"
+            },
+            { 
+                "title": "Keramička anđepska krila", 
+                "description": "Elegantna keramička krila kao simbol zaštite - savršen poklon za krštenje, pričest ili druge posebne trenutke",
+                "image": "images/keramickakrila.jpg.jpeg",
+                "alt": "Ručno slikana personalizirana slika"
+            },
+            { 
+                "title": "Slatki personalizirani trenutci", 
+                "description": "Elegantno pakirane čokoladice s Vašom porukom, savršeno za svaku posebnu prigodu",
+                "image": "images/cokozahvlanica.jpg.jpeg",
+                "alt": "Luksuzna drvena kutija s satenskom oblogom"
+            }
+        ];
+
+        // Services data
+        const services = [
+            {
+                "title": "Personalizacija Poklona",
+                "description": "Svaki poklon prilagođavamo Vašim željama - dizajn i posebni natpisi.",
+                "icon": "fas fa-user-edit"
+            },
+            {
+                "title": "Ručna Izrada",
+                "description": "Svi proizvodi su ručno izrađeni s pažnjom na svaki detalj i vrhunskom kvalitetom.",
+                "icon": "fas fa-hands"
+            },
+            {
+                "title": "Premium Materijali",
+                "description": "Koristimo samo najkvalitetnije materijale.",
+                "icon": "fas fa-gem"
+            },
+            {
+                "title": "Dizajn po Narudžbi",
+                "description": "Kreiramo potpuno nove dizajne prema Vašim idejama i potrebama.",
+                "icon": "fas fa-pencil-ruler"
+            },
+            {
+                "title": "Brza Isporuka",
+                "description": "Isporuka unutar Hrvatske u roku od 3-5 radnih dana od izrade. Hitne narudžbe moguće uz prethodni dogovor.",
+                "icon": "fas fa-shipping-fast"
+            },
+            {
+                "title": "Zamatanje poklona",
+                "description": "Besplatno premium poklon zamatanje.",
+                "icon": "fas fa-gift"
+            }
+        ];
+
+        // Footer links data
+        const footerLinks = [
+            { "label": "Početna", "href": "#home" },
+            { "label": "Usluge", "href": "#usluge" },
+            { "label": "Portfolio", "href": "#portfolio" },
+            { "label": "Blog", "href": "#blog" },
+            { "label": "Kontakt", "href": "#contact" }
+        ];
+
+        // Legal links data
+    const legalLinks = [
+    { "label": "Uvjeti korištenja", "href": "uvjeti-koristenja.html" }
+];
+
+        // ============================================
+        // RENDER FUNCTIONS - Reusable template generators
+        // ============================================
+
+        /**
+         * Renders navigation items from data array
+         * @param {Array} items - Navigation items data
+         * @returns {string} HTML string of navigation items
+         */
+        function renderNavItems(items) {
+            return items.map(item => 
+                `<li>
+                    <a href="${item.href}" 
+                       class="text-premium-charcoal hover:text-premium-gold font-medium transition-colors"
+                       data-nav-link>
+                        ${item.label}
+                    </a>
+                </li>`
+            ).join("");
+        }
+
+        /**
+         * Renders gallery items from data array
+         * @param {Array} items - Gallery items data
+         * @returns {string} HTML string of gallery items
+         */
+        function renderGalleryItems(items) {
+            return items.map(item => 
+                `<div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                    <img src="${item.image}" 
+                         alt="${item.alt}" 
+                         class="gallery-img w-full h-80 object-cover"
+                         loading="lazy">
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-bold text-premium-charcoal mb-2">
+                            ${item.title}
+                        </h3>
+                        <p class="text-gray-600">
+                            ${item.description}
+                        </p>
+                    </div>
+                </div>`
+            ).join("");
+        }
+
+        /**
+         * Renders service items from data array
+         * @param {Array} items - Service items data
+         * @returns {string} HTML string of service items
+         */
+        function renderServiceItems(items) {
+            return items.map(item => 
+                `<div class="card-hover bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-premium-gold text-3xl mb-4">
+                        <i class="${item.icon}"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-premium-charcoal mb-3">
+                        ${item.title}
+                    </h3>
+                    <p class="text-gray-600">
+                        ${item.description}
+                    </p>
+                </div>`
+            ).join("");
+        }
+
+        /**
+         * Renders footer links from data array
+         * @param {Array} items - Footer links data
+         * @returns {string} HTML string of footer links
+         */
+        function renderFooterLinks(items) {
+            return items.map(item => 
+                `<li>
+                    <a href="${item.href}" 
+                       class="text-gray-300 hover:text-premium-gold transition-colors"
+                       data-footer-link>
+                        ${item.label}
+                    </a>
+                </li>`
+            ).join("");
+        }
+
+        /**
+         * Renders legal links from data array
+         * @param {Array} items - Legal links data
+         * @returns {string} HTML string of legal links
+         */
+        function renderLegalLinks(items) {
+            return items.map(item => 
+                `<li>
+                    <a href="${item.href}" 
+                       target="_blank"
+                       class="text-gray-300 hover:text-premium-gold transition-colors">
+                        ${item.label}
+                    </a>
+                </li>`
+            ).join("");
+        }
+
+        /**
+         * Renders a blog post from data object
+         * @param {Object} post - Blog post data
+         * @returns {string} HTML string of blog post
+         */
+        function renderBlogPost(post) {
+    const images = (post.linkoviSlika || "")
+        .split(",")
+        .map(url => url.trim())
+        .filter(Boolean);
+
+    return `
+        <article class="blog-card h-full">
+            <div class="p-5 md:p-8">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                    <span class="text-premium-gold font-semibold">
+                        ${post.datum ? formatDate(post.datum) : 'Nedavno'}
+                    </span>
+                    <span class="bg-premium-sage text-white px-3 py-1 rounded-full text-sm w-fit">Objavljeno</span>
+                </div>
+
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-premium-charcoal mb-3">
+                    ${post.naslov || ''}
+                </h3>
+
+                <h4 class="text-lg md:text-xl text-premium-burgundy mb-4">
+                    ${post.podnaslov || ''}
+                </h4>
+
+               <div class="blog-post-content blog-text-clamp prose max-w-none text-gray-700 mb-6 whitespace-pre-line leading-relaxed">
+    ${post.text || ''}
+</div>
+
+                ${
+                    images.length > 0
+                        ? `
+                        <div class="grid grid-cols-1 ${images.length > 1 ? 'md:grid-cols-2' : ''} gap-4">
+                            ${images.map((img, index) => `
+                                <img 
+                                    src="${img}" 
+                                    alt="Slika ${index + 1} za ${post.naslov || 'blog post'}" 
+                                  class="rounded-lg w-full h-80 md:h-96 object-cover"
+                                    loading="lazy"
+                                    decoding="async"
+                                >
+                            `).join("")}
+                        </div>
+                        `
+                        : ''
+                }
+            </div>
+        </article>
+    `;
+}
+        // ============================================
+        // INITIALIZATION - DOM content rendering
+        // ============================================
+
+        // Render all content on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render navigation
+            document.getElementById('nav-list').innerHTML = renderNavItems(navigationItems);
+            
+            // Render gallery
+            document.getElementById('gallery-grid').innerHTML = renderGalleryItems(galleryItems);
+            
+            // Render services
+            document.getElementById('services-grid').innerHTML = renderServiceItems(services);
+            
+            // Render footer links
+            document.getElementById('footer-links').innerHTML = renderFooterLinks(footerLinks);
+            
+            // Render legal links
+            document.getElementById('legal-links').innerHTML = renderLegalLinks(legalLinks);
+            
+            // Load blog posts from Google Sheets
+            loadBlogPosts();
+            
+            // Initialize event listeners
+            initializeEventListeners();
+        });
+
+        // ============================================
+        // BLOG POSTS LOADING - Google Sheets integration
+        // ============================================
+
+        /**
+         * Loads blog posts from Google Sheets via Apps Script
+         */
+
+             
+let blogData = [];
+let currentBlogIndex = 0;
+let blogTouchStartX = 0;
+let blogTouchEndX = 0;
+
+function renderBlogPost(post) {
+    const images = (post.linkoviSlika || "")
+        .split(",")
+        .map(url => url.trim())
+        .filter(Boolean);
+
+    return `
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
+            <div class="p-5 md:p-8">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                    <span class="text-premium-gold font-semibold">
+                        ${post.datum ? formatDate(post.datum) : 'Nedavno'}
+                    </span>
+                    <span class="bg-premium-sage text-white px-3 py-1 rounded-full text-sm w-fit">Objavljeno</span>
+                </div>
+
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-premium-charcoal mb-3">
+                    ${post.naslov || ''}
+                </h3>
+
+                <h4 class="text-lg md:text-xl text-premium-burgundy mb-4">
+                    ${post.podnaslov || ''}
+                </h4>
+
+  <div class="blog-post-content blog-text-clamp max-w-none text-gray-700 mb-3 whitespace-pre-line leading-relaxed">
+    ${post.text || ''}
+</div>
+
+<button class="blog-toggle-btn">Prikaži više</button>
+
+                ${
+                    images.length > 0
+                        ? `
+                        <div class="grid grid-cols-1 ${images.length > 1 ? 'md:grid-cols-2' : ''} gap-4">
+                            ${images.map((img, index) => `
+                                <img 
+                                    src="${img}" 
+                                    alt="Slika ${index + 1} za ${post.naslov || 'blog post'}" 
+                                    class="rounded-lg w-full h-72 md:h-80 object-cover object-center"
+                                    loading="lazy"
+                                    decoding="async"
+                                >
+                            `).join("")}
+                        </div>
+                        `
+                        : ''
+                }
+            </div>
+        </article>
+    `;
+}
+
+function renderBlogSlide(post) {
+    return `
+        <div class="blog-slide">
+            ${renderBlogPost(post)}
+        </div>
+    `;
+}
+
+function updateBlogDots() {
+    const dots = document.querySelectorAll('.blog-dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentBlogIndex);
+    });
+}
+
+function renderBlogDots() {
+    const dotsContainer = document.getElementById('blog-dots');
+    if (!dotsContainer) return;
+
+    if (!Array.isArray(blogData) || blogData.length <= 1) {
+        dotsContainer.innerHTML = '';
+        return;
+    }
+
+    dotsContainer.innerHTML = blogData.map((_, index) => `
+        <button 
+            class="blog-dot ${index === currentBlogIndex ? 'active' : ''}" 
+            data-index="${index}"
+            aria-label="Idi na blog post ${index + 1}">
+        </button>
+    `).join('');
+
+    dotsContainer.querySelectorAll('.blog-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+            currentBlogIndex = Number(dot.dataset.index);
+            updateBlogSlider();
+        });
+    });
+}
+
+function updateBlogSlider() {
+    const slider = document.getElementById('blog-slider');
+    const prevBtn = document.getElementById('blog-prev');
+    const nextBtn = document.getElementById('blog-next');
+
+    if (!slider) return;
+
+    slider.style.transform = `translateX(-${currentBlogIndex * 100}%)`;
+
+    if (prevBtn) prevBtn.disabled = currentBlogIndex === 0;
+    if (nextBtn) nextBtn.disabled = currentBlogIndex === blogData.length - 1;
+
+    updateBlogDots();
+}
+
+function handleBlogSwipe() {
+    const swipeThreshold = 50;
+    const diff = blogTouchStartX - blogTouchEndX;
+
+    if (Math.abs(diff) < swipeThreshold) return;
+
+    if (diff > 0 && currentBlogIndex < blogData.length - 1) {
+        currentBlogIndex++;
+        updateBlogSlider();
+    } else if (diff < 0 && currentBlogIndex > 0) {
+        currentBlogIndex--;
+        updateBlogSlider();
+    }
+}
+
+function initializeBlogSliderEvents() {
+    const prevBtn = document.getElementById('blog-prev');
+    const nextBtn = document.getElementById('blog-next');
+    const slider = document.getElementById('blog-slider');
+
+    if (prevBtn) {
+        prevBtn.onclick = () => {
+            if (currentBlogIndex > 0) {
+                currentBlogIndex--;
+                updateBlogSlider();
+            }
+        };
+    }
+
+    if (nextBtn) {
+        nextBtn.onclick = () => {
+            if (currentBlogIndex < blogData.length - 1) {
+                currentBlogIndex++;
+                updateBlogSlider();
+            }
+        };
+    }
+
+    if (slider) {
+        slider.addEventListener('touchstart', (e) => {
+            blogTouchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        slider.addEventListener('touchend', (e) => {
+            blogTouchEndX = e.changedTouches[0].screenX;
+            handleBlogSwipe();
+        }, { passive: true });
+    }
+}
+
+function renderPosts() {
+    const slider = document.getElementById('blog-slider');
+    const loading = document.getElementById('blog-loading');
+    const prevBtn = document.getElementById('blog-prev');
+    const nextBtn = document.getElementById('blog-next');
+    const dotsContainer = document.getElementById('blog-dots');
+
+    if (!slider) {
+        console.error('Nedostaje element #blog-slider u HTML-u');
+        return;
+    }
+
+    if (loading) loading.style.display = 'none';
+
+    if (!Array.isArray(blogData) || blogData.length === 0) {
+        slider.innerHTML = `
+            <div class="blog-slide">
+                <div class="text-center py-12 bg-white rounded-xl shadow-lg">
+                    <p class="text-gray-600">Trenutno nema objavljenih blog postova.</p>
+                </div>
+            </div>
+        `;
+
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (dotsContainer) dotsContainer.innerHTML = '';
+        return;
+    }
+
+    slider.innerHTML = blogData.map(post => renderBlogSlide(post)).join('');
+
+    if (blogData.length <= 1) {
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+    } else {
+        if (prevBtn) prevBtn.style.display = 'flex';
+        if (nextBtn) nextBtn.style.display = 'flex';
+    }
+
+    renderBlogDots();
+    updateBlogSlider();
+    initializeBlogSliderEvents();
+}
+
+async function loadBlogPosts() {
+    const slider = document.getElementById('blog-slider');
+    const loading = document.getElementById('blog-loading');
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbz7FFbhMcX6UAgbf58tc4o2XvcRMh4mP6mMGkRow-0fF6yM5VIkijEF2Ysys-Z1CjLZBg/exec';
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        blogData = Array.isArray(data) ? data : [];
+        currentBlogIndex = 0;
+
+        renderPosts();
+    } catch (error) {
+        console.error('Error loading blog posts:', error);
+
+        if (loading) loading.style.display = 'none';
+
+        if (slider) {
+            slider.innerHTML = `
+                <div class="blog-slide">
+                    <div class="text-center py-12 bg-white rounded-xl shadow-lg">
+                        <p class="text-red-600">Greška pri učitavanju blog postova.</p>
+                        <p class="text-gray-600 text-sm mt-2">Molimo pokušajte kasnije.</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        const prevBtn = document.getElementById('blog-prev');
+        const nextBtn = document.getElementById('blog-next');
+        const dotsContainer = document.getElementById('blog-dots');
+
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (dotsContainer) dotsContainer.innerHTML = '';
+    }
+}
+
+
+function openSuccessModal() {
+    const modal = document.getElementById('success-modal');
+    if (!modal) return;
+
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSuccessModal() {
+    const modal = document.getElementById('success-modal');
+    if (!modal) return;
+
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+    /* let expanded = false;
+
+    async function loadBlogPosts() {
+    const blogContainer = document.getElementById('blog-posts');
+
+    try {
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbyw_52t_2ExRpxq1iYMxWJD9gDDRCnZWiWjF9ezE5brQPp4kWK3VSE1Oj5x7aQi1qUfyw/exec';
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        // Apps Script vraća direktno array postova
+        if (!Array.isArray(data) || data.length === 0) {
+            blogContainer.innerHTML = `
+                <div class="text-center py-12">
+                    <p class="text-gray-600">Trenutno nema objavljenih blog postova.</p>
+                </div>
+            `;
+            return;
+        }
+
+        if (!expanded) {
+            blogContainer.innerHTML =
+                renderBlogPost(data[0]) +
+                (data.length > 1
+                    ? `<div class="button">
+                            <button id="togglePosts">Prikaži više</button>
+                    </div>`
+                    : "");
+        } else {
+            blogContainer.innerHTML =
+                data.map(post => renderBlogPost(post)).join("") +
+                `<div class="button">
+                    <button id="togglePosts">Prikaži manje</button>
+                </div>`;
+        }
+
+        const btn = document.getElementById("togglePosts");
+        if (btn) {
+            btn.addEventListener("click", () => {
+                expanded = !expanded;
+                renderPosts();
+            });
+        }
+    } catch (error) {
+        console.error('Error loading blog posts:', error);
+        blogContainer.innerHTML = `
+            <div class="text-center py-12">
+                <p class="text-red-600">Greška pri učitavanju blog postova.</p>
+                <p class="text-gray-600 text-sm mt-2">Molimo pokušajte kasnije.</p>
+            </div>
+        `;
+    }
+} */
+
+        // ============================================
+        // EVENT HANDLING - Delegated event management
+        // ============================================
+
+        /**
+         * Initializes all event listeners
+         */
+        function initializeEventListeners() {
+
+            const successModal = document.getElementById('success-modal');
+const successModalClose = document.getElementById('success-modal-close');
+
+if (successModalClose) {
+    successModalClose.addEventListener('click', closeSuccessModal);
+}
+
+if (successModal) {
+    successModal.addEventListener('click', function(event) {
+        if (event.target === successModal) {
+            closeSuccessModal();
+        }
+    });
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeSuccessModal();
+    }
+});
+            // Smooth scrolling for all anchor links
+            document.addEventListener('click', function(event) {
+                const link = event.target.closest('a[href^="#"]');
+                if (!link) return;
+                
+                event.preventDefault();
+                const targetId = link.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+
+            // Contact form submission
+           const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        let isValid = true;
+
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('border-red-500');
+            } else {
+                field.classList.remove('border-red-500');
+            }
+        });
+
+        if (!isValid) {
+            alert('Molimo ispunite sva obavezna polja.');
+            return;
+        }
+
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+
+        submitButton.textContent = 'Šaljem...';
+        submitButton.disabled = true;
+
+        const payload = {
+  imePrezime: document.getElementById('name').value.trim(),
+  imeTvrtke: document.getElementById('company').value.trim(),
+  brojTelefona: document.getElementById('phone').value.trim(),
+  email: document.getElementById('email').value.trim(),
+  ocekivaniDatumIsporuke: document.getElementById('delivery-date').value,
+  poruka: document.getElementById('message').value.trim()
+};
+
+        try {
+            await fetch('https://script.google.com/macros/s/AKfycbwMh22kS-NOYDJtDV2R89c-Tqi4537rPwFxJULW92AxSgC9UoLO_J2nTxmQeuMVQ6nh/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                },
+                body: JSON.stringify(payload)
+            });
+
+           openSuccessModal();
+contactForm.reset();
+        } catch (error) {
+            console.error('Greška pri slanju forme:', error);
+            alert('Došlo je do greške pri slanju forme.');
+        } finally {
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
+    });
+}
+            // Form field validation styling
+            const formInputs = document.querySelectorAll('#contact-form input, #contact-form textarea');
+            formInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        this.classList.remove('border-red-500');
+                    }
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (this.hasAttribute('required') && !this.value.trim()) {
+                        this.classList.add('border-red-500');
+                    }
+                });
+            });
+        }
+
+        // ============================================
+        // UTILITY FUNCTIONS - Helper functions
+        // ============================================
+
+        /**
+         * Formats date to Croatian locale
+         * @param {string} dateString - Date string to format
+         * @returns {string} Formatted date
+         */
+        function formatDate(dateString) {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return dateString;
+
+    return date.toLocaleDateString('hr-HR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+}
+
+        /**
+         * Debounce function for performance optimization
+         * @param {Function} func - Function to debounce
+         * @param {number} wait - Wait time in milliseconds
+         * @returns {Function} Debounced function
+         */
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // ============================================
+        // RESPONSIVE BEHAVIOR - Window resize handling
+        // ============================================
+
+        // Debounced resize handler for performance
+        window.addEventListener('resize', debounce(function() {
+            // Add any responsive behavior adjustments here
+            console.log('Window resized - responsive adjustments applied');
+        }, 250));
+
+
+
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 80) {
+            element.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+
+document.addEventListener("click", function(e){
+
+    if(!e.target.classList.contains("blog-toggle-btn")) return;
+
+    const button = e.target;
+    const text = button.previousElementSibling;
+
+    if(text.classList.contains("blog-text-clamp")){
+        text.classList.remove("blog-text-clamp");
+        button.textContent = "Sakrij tekst";
+    } else {
+        text.classList.add("blog-text-clamp");
+        button.textContent = "Prikaži više";
+    }
+
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const params = new URLSearchParams(window.location.search);
+    const productCode = params.get("product");
+
+    if (productCode) {
+
+        const messageField = document.getElementById("message");
+
+        if (messageField) {
+
+            const text = `Zanima me poklon sa šifrom: ${productCode}.
+
+Molim više informacija o izradi, personalizaciji i roku isporuke.`;
+
+            messageField.value = text;
+
+            const contactSection = document.getElementById("contact");
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: "smooth" });
+            }
+
+        }
+
+    }
+
+});
+
+    </script>
+</body>
+</html>
